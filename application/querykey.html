@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <!-- jQuery AJAX -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#div1').hide();
+      
+      $("button").click(function (){
+        var id = $("#key").val();
+        console.log(id);
+
+        $('#div1').show();
+        
+        var url = "../../api/querykey/"+id;
+        $.get(url, function(data, status){
+          $("#div2").text(JSON.stringify(data));
+        });
+      });
+    });
+    
+
+  </script>
+
+  <title>QueryKey Page</title>
+</head>
+<body>
+  <h1>QueryKey Page</h1>
+  <hr />
+    <table>
+      <tr>
+        <td><label>Key</label></td>
+        <td><input id="key" type="text" name="key" /></td>
+      </tr>
+      <tr><td><button>Query Key</button></td></tr>
+
+    </table>
+
+  <div id="div1"><h2>Sacc Query Result</h2></div>
+  <div id="div2"></div>
+</body>
+</html>
