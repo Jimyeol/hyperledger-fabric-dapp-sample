@@ -48,9 +48,14 @@ func (t *SimpleAsset) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
 	var err error
 	if fn == "set" {
 		result, err = set(stub, args)
-	} else { // assume 'get' even if fn is nil
+	} else if fn == "get" {
 		result, err = get(stub, args)
+	} else if fn == "getAllKeys" {
+		result, err = getAllKeys(stub)
+	} else {
+		return shim.Error("Not supported chaincode function.")
 	}
+
 	if err != nil {
 		return shim.Error(err.Error())
 	}
@@ -87,6 +92,42 @@ func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
 		return "", fmt.Errorf("Asset not found: %s", args[0])
 	}
 	return string(value), nil
+}
+
+// Get returns the value of the specified asset key
+func getAllKeys(stub shim.ChaincodeStubInterface) (string, error) {
+
+	iter, err := stub.GetStateByRange("a", "z")
+	if err != nil {
+		return "", fmt.Errorf("Failed to get all keys with error: %s", err)
+	}
+	defer iter.Close()
+
+	var buffer string
+	buffer = "["
+
+	comma := false
+	for iter.HasNext() {
+		res, err := iter.Next()
+		if err != nil {
+			return "", fmt.Errorf("%s", err)
+		}
+		if comma == true {
+			buffer += ","
+		}
+		buffer += "{\"key\":"
+		buffer += "\""
+		buffer += res.Key
+		buffer += "\",\"Value\":\""
+		buffer += string(res.Value)
+		buffer += "\"}"
+		comma = true
+	}
+	buffer += "]"
+
+	fmt.Println(buffer)
+
+	return string(buffer), nil
 }
 
 // main function starts up the chaincode in the container during instantiate

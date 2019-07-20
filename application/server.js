@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Index page
 app.get('/', function (req, res) {
-  fs.readFile('./application/index.html', function (error, data) {
+  fs.readFile('./index.html', function (error, data) {
               res.send(data.toString());
 
   });
@@ -63,7 +63,7 @@ app.get('/api/query', async function (req, res) {
 });
 
 app.get('/api/querykey/', function (req, res) {
-    fs.readFile('./application/querykey.html', function (error, data) {
+    fs.readFile('./querykey.html', function (error, data) {
         res.send(data.toString());
     });
 });
@@ -116,7 +116,7 @@ app.get('/api/querykey/:id', async function (req, res) {
 
 // Create car page
 app.get('/api/createkey', function (req, res) {
-  fs.readFile('./application/createcar.html', function (error, data) {
+  fs.readFile('./createkey.html', function (error, data) {
               res.send(data.toString());
   });
 });
