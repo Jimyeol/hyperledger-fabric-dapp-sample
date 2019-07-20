@@ -6,7 +6,7 @@ sleep 5
 #chaincode query a
 docker exec cli peer chaincode query -n sacc -C mychannel -c '{"Args":["get","a"]}'
 #chaincode invoke b
-peer chaincode invoke -n sacc -C mychannel -c '{"Args":["set","b","200"]}'
+docker exec cli peer chaincode invoke -n sacc -C mychannel -c '{"Args":["set","b","200"]}'
 sleep 5
 #chaincode query b
 docker exec cli peer chaincode query -n sacc -C mychannel -c '{"Args":["get","b"]}'

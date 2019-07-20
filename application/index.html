@@ -10,11 +10,7 @@
           $.get("../../api/query", function(data, status){
 
               $("#div2").empty();
-              data.sort(function(a,b){
-                var aN = parseInt(a.Key.slice(3));
-                var bN = parseInt(b.Key.slice(3));
-                return aN-bN;
-              });
+
               for(var i = 0; i<data.length; i++)
               {
                 $("#div2").append(JSON.stringify(data[i])+"<br>");
@@ -29,18 +25,16 @@
 <body>
   <h1>Welcome</h1>
   <p>Select A Nextpage</p>
-  <a href="./api/querycar">Query a car</a>
+  <a href="./api/querykey">Query a key</a>
   <br>
-  <a href="./api/createcar">Create a car</a>
-  <br>
-  <a href="./api/changeowner">Change owner</a>
+  <a href="./api/createkey">Create a key</a>
 
   <br>
   <br>
   <br>
   <button>Query All Cars</button>
 
-  <div id="div1"><h2>Fabcar Query Result</h2></div>
+  <div id="div1"><h2>Sacc Query Result</h2></div>
   <div id="div2"></div>
 
 </body>
