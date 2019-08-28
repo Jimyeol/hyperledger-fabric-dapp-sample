@@ -28,30 +28,30 @@ This is a normal paragraph:
 end code block.
 
 #### application build
-This is a normal paragraph:
+<pre><code>
     cd application
     node enrollAdmin.js
     node registerUser.js
-end code block.
+</code></pre>
 
 #### docker kill
-This is a normal paragraph:
+<pre><code>
     docker rm -f $(docker ps -aq)
     docker network prune
-end code block.
+</code></pre>
 
 #### docker kill check
-This is a normal paragraph:
+<pre><code>
     docker ps
     docker network ls
     docker images dev-*
-end code block.
+</code></pre>
 
 #### cli implement
-This is a normal paragraph:
+<pre><code>
     docker exec -it cli bash
     peer chaincode query -n sacc -C mychannel -c '{"Args":["getAllKeys"]}'
     peer chaincode query -n sacc -C mychannel -c '{"Args":["get", "a"]}'
     peer chaincode invoke -n sacc -C mychannel -c '{"Args":["set", "c", "200"]}'
-end code block.
+</code></pre>
 
