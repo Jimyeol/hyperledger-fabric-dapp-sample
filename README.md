@@ -48,10 +48,10 @@ end code block.
 </code></pre>
 
 #### cli implement
-<pre><code>
+<code>
     docker exec -it cli bash
     peer chaincode query -n sacc -C mychannel -c '{"Args":["getAllKeys"]}'
     peer chaincode query -n sacc -C mychannel -c '{"Args":["get", "a"]}'
     peer chaincode invoke -n sacc -C mychannel -c '{"Args":["set", "c", "200"]}'
-</code></pre>
+</code>
 
