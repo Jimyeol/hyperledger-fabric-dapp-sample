@@ -15,36 +15,31 @@ description
 Usage
 -------------
 #### Network
-This is a normal paragraph:
-    cd network
-    ./generate.sh
-    ./start.sh
-end code block.
+<pre><code>cd network
+./generate.sh
+./start.sh
+</code></pre>
 
 #### contract build
-This is a normal paragraph:
-    cd contract
-    go build
-end code block.
+<pre><code>cd contract
+go build
+</code></pre>
 
 #### application build
-<pre><code>
-    cd application
-    node enrollAdmin.js
-    node registerUser.js
+<pre><code>cd application
+node enrollAdmin.js
+node registerUser.js
 </code></pre>
 
 #### docker kill
-<pre><code>
-    docker rm -f $(docker ps -aq)
-    docker network prune
+<pre><code>docker rm -f $(docker ps -aq)
+docker network prune
 </code></pre>
 
 #### docker kill check
-<pre><code>
-    docker ps
-    docker network ls
-    docker images dev-*
+<pre><code>docker ps
+docker network ls
+docker images dev-*
 </code></pre>
 
 #### cli implement
