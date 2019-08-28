@@ -1,3 +1,5 @@
 HYPERLEDGER-FABRIC-DAPP-SAMPLE
 ===
-hyperledger-fabric-dapp-sample
+- Three organization
+- Fabric-CA
+- NodeJS Server (Local host)
